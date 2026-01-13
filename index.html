@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Boda Juan & Valeria</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -13,7 +13,7 @@
             --dorado: #b79b78;
             --dorado-oscuro: #967d5e;
             --texto: #3a2f25;
-            --blanco-trans: rgba(255, 255, 255, 0.92);
+            --blanco-trans: rgba(255, 255, 255, 0.94);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -22,7 +22,7 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--texto);
             background-color: #fcfbf9;
-            line-height: 1.6;
+            line-height: 1.7; /* Mayor interlineado para lectura */
             overflow-x: hidden;
         }
 
@@ -38,7 +38,7 @@
             transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
         }
         .sobre-contenido { text-align: center; cursor: pointer; padding: 20px; }
-        .sobre-contenido img { width: 100px; margin-bottom: 20px; animation: heartbeat 2.5s infinite; }
+        .sobre-contenido img { width: 110px; margin-bottom: 20px; animation: heartbeat 2.5s infinite; }
         @keyframes heartbeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -56,11 +56,11 @@
         /* --- SECCIONES --- */
         section {
             position: relative;
-            padding: 80px 20px;
+            padding: 60px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 60vh;
+            min-height: 70vh;
         }
 
         .overlay {
@@ -83,59 +83,62 @@
         .bg-rosas { background: url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; }
         .bg-novios { background: url("https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; }
 
-        /* --- TEXTOS --- */
-        .iniciales { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 20vw, 8rem); font-style: italic; }
-        .nombres { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 6vw, 2.5rem); font-style: italic; font-weight: 700; }
-        .titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.5rem); font-style: italic; margin-bottom: 20px; color: var(--dorado-oscuro); }
-        .fecha-boda { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2rem); color: var(--dorado-oscuro); margin-bottom: 10px; font-weight: 600; }
-        .texto { font-size: clamp(0.95rem, 2vw, 1.1rem); margin: 0 auto; padding: 0 10px; }
-        .firma { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--dorado); margin-top: 20px; }
+        /* --- TEXTOS (MÁS GRANDES) --- */
+        .iniciales { font-family: 'Playfair Display', serif; font-size: clamp(5rem, 25vw, 9rem); font-style: italic; }
+        .nombres { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 7vw, 2.8rem); font-style: italic; font-weight: 700; }
+        .titulo { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 2.8rem); font-style: italic; margin-bottom: 25px; color: var(--dorado-oscuro); }
+        .fecha-boda { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--dorado-oscuro); margin-bottom: 15px; font-weight: 700; }
+        .texto { font-size: clamp(1.1rem, 4vw, 1.25rem); margin: 0 auto; padding: 0 10px; font-weight: 400; }
+        .firma { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 4.5rem); color: var(--dorado); margin-top: 25px; }
+
+        /* --- TARJETAS --- */
+        .card { background: var(--blanco-trans); padding: 50px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
 
         /* --- TIMELINE --- */
         .timeline { margin: 40px 0; position: relative; }
         .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--dorado); transform: translateX(-50%); }
-        .timeline-item { margin-bottom: 30px; position: relative; width: 50%; padding: 0 30px; }
+        .timeline-item { margin-bottom: 35px; position: relative; width: 50%; padding: 0 35px; }
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-        .timeline-item h4 { color: var(--dorado-oscuro); font-size: 1.4rem; font-family: 'Playfair Display', serif; }
-
-        /* --- GALERÍA --- */
-        .gallery-container { overflow: hidden; position: relative; border-radius: 15px; width: 90%; margin: 0 auto; }
-        .gallery-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .gallery-track img { width: 100%; flex-shrink: 0; object-fit: cover; height: 400px; }
+        .timeline-item h4 { color: var(--dorado-oscuro); font-size: 1.6rem; font-family: 'Playfair Display', serif; }
 
         /* --- CONTADOR --- */
-        #contador { display: flex; justify-content: center; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
-        .count-item { background: white; padding: 10px; border-radius: 10px; min-width: 70px; border-bottom: 3px solid var(--dorado); flex: 1; max-width: 90px; }
-        .count-num { display: block; font-size: 1.5rem; font-weight: 600; color: var(--dorado-oscuro); }
-        .count-lab { font-size: 0.7rem; text-transform: uppercase; }
+        #contador { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .count-item { background: white; padding: 15px 10px; border-radius: 12px; min-width: 80px; border-bottom: 4px solid var(--dorado); flex: 1; max-width: 100px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .count-num { display: block; font-size: 1.8rem; font-weight: 700; color: var(--dorado-oscuro); }
+        .count-lab { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+
+        /* --- GALERÍA --- */
+        .gallery-container { overflow: hidden; position: relative; border-radius: 15px; width: 100%; margin: 0 auto; }
+        .gallery-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .gallery-track img { width: 100%; flex-shrink: 0; object-fit: cover; height: 450px; }
 
         /* --- VESTIMENTA --- */
-        .dress-code-container { display: flex; justify-content: center; gap: 40px; margin: 25px 0; }
+        .dress-code-container { display: flex; justify-content: center; gap: 50px; margin: 30px 0; }
         .dress-item { text-align: center; }
-        .dress-item i { font-size: 2.5rem; color: var(--dorado); margin-bottom: 10px; }
-        .paleta { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
-        .color-circle { width: 35px; height: 35px; border-radius: 50%; border: 2px white solid; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .dress-item i { font-size: 3rem; color: var(--dorado); margin-bottom: 12px; }
+        .paleta { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+        .color-circle { width: 45px; height: 45px; border-radius: 50%; border: 3px white solid; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
 
-        /* --- TARJETAS Y MAPAS --- */
-        .card { background: var(--blanco-trans); padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 25px; }
-        .map-container { position: relative; width: 100%; height: 250px; border-radius: 15px; overflow: hidden; margin: 20px 0; border: 1px solid #eee; }
+        /* --- MAPAS --- */
+        .map-container { position: relative; width: 100%; height: 280px; border-radius: 15px; overflow: hidden; margin: 25px 0; border: 1px solid #eee; }
         .map-container iframe { width: 100%; height: 100%; border: none; }
 
         /* --- BOTONES --- */
-        .boton { margin-top: 15px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; border-radius: 50px; background: var(--dorado); color: white !important; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem; }
+        .boton { margin-top: 20px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 35px; border-radius: 50px; background: var(--dorado); color: white !important; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; font-size: 1.1rem; box-shadow: 0 8px 20px rgba(183, 155, 120, 0.3); }
         .boton:hover { background: var(--dorado-oscuro); transform: translateY(-2px); }
-        #musicBtn { position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px; background: var(--dorado); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        #musicBtn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--dorado); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-size: 1.3rem; }
 
         /* --- FORMULARIOS --- */
-        textarea { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; margin-top: 15px; resize: none; }
+        textarea { width: 100%; padding: 20px; border-radius: 12px; border: 1px solid #ddd; font-family: inherit; margin-top: 20px; resize: none; font-size: 1.1rem; }
 
         @media (max-width: 768px) {
-            section { padding: 60px 15px; }
+            section { padding: 40px 15px; }
             .timeline::before { left: 20px; }
-            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 45px; }
-            .gallery-track img { height: 300px; }
-            .dress-code-container { gap: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 45px; margin-bottom: 25px; }
+            .gallery-track img { height: 350px; }
+            .dress-code-container { gap: 30px; }
+            .card { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -145,7 +148,7 @@
 <div id="sobre-capa" onclick="abrirInvitacion()">
     <div class="sobre-contenido">
         <img src="https://cdn-icons-png.flaticon.com/512/3063/3063990.png" alt="Sobre">
-        <p class="titulo" style="font-size: 1.3rem;">Toca para abrir la invitación</p>
+        <p class="titulo" style="font-size: 1.5rem;">Toca para abrir la invitación</p>
     </div>
 </div>
 
@@ -168,29 +171,30 @@
     <div class="content-wrap anim card">
         <p class="texto">Con la bendición de Dios y nuestros padres, tenemos el honor de invitarlos a nuestra unión.</p>
         <br>
-        <div class="titulo" style="font-size: 1.5rem;">Padres de la Novia</div>
+        <div class="titulo" style="font-size: 1.6rem;">Padres de la Novia</div>
         <p class="texto">María López & Carlos Hernández</p>
         <br>
-        <div class="titulo" style="font-size: 1.5rem;">Padres del Novio</div>
+        <div class="titulo" style="font-size: 1.6rem;">Padres del Novio</div>
         <p class="texto">Laura Martínez & Roberto Gómez</p>
     </div>
 </section>
 
 <section>
-    <div class="content-wrap anim">
+    <div class="content-wrap anim card">
         <div class="titulo">Nuestra Historia</div>
         <div class="timeline">
-            <div class="timeline-item"><h4>2020</h4><p>Nos conocimos</p></div>
-            <div class="timeline-item"><h4>2022</h4><p>Primer viaje</p></div>
-            <div class="timeline-item"><h4>2024</h4><p>¡Dijo que sí!</p></div>
+            <div class="timeline-item"><h4>2020</h4><p class="texto">Nos conocimos</p></div>
+            <div class="timeline-item"><h4>2022</h4><p class="texto">Primer viaje</p></div>
+            <div class="timeline-item"><h4>2024</h4><p class="texto">¡Dijo que sí!</p></div>
         </div>
     </div>
 </section>
 
-<section>
-    <div class="content-wrap anim">
-        <div class="fecha-boda">25 Octubre 2026</div>
-        <div class="titulo" style="font-size: 1.2rem; margin-bottom: 10px;">Faltan solo…</div>
+<section class="bg-rosas">
+    <div class="overlay"></div>
+    <div class="content-wrap anim card">
+        <div class="fecha-boda">25 de Octubre 2026</div>
+        <div class="titulo" style="font-size: 1.4rem; margin-bottom: 15px;">Faltan solo…</div>
         
         <div id="contador">
             <div class="count-item"><span id="days" class="count-num">0</span><span class="count-lab">Días</span></div>
@@ -212,9 +216,9 @@
                 <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&w=800&q=80">
             </div>
         </div>
-        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
-            <button class="boton" onclick="moveGallery(-1)">❮</button>
-            <button class="boton" onclick="moveGallery(1)">❯</button>
+        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+            <button class="boton" onclick="moveGallery(-1)" style="padding: 15px 25px;">❮</button>
+            <button class="boton" onclick="moveGallery(1)" style="padding: 15px 25px;">❯</button>
         </div>
     </div>
 </section>
@@ -225,18 +229,18 @@
             <div class="titulo">Ceremonia</div>
             <p class="texto"><strong>Parroquia San José</strong><br>17:00 HRS - Monterrey, NL</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.688175960416!2d-100.32271722384288!3d25.672249611933092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be2719ace001%3A0x5be0e866816b63f6!2sTemplo%20San%20Jos%C3%A9!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.6321689100004!2d-100.3121!3d25.6714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE3LjAiTiAxMDDCsDE4JzQzLjYiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/3" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
+            <a href="https://maps.app.goo.gl/u3U6uC78sL3Y7D7h7" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
         </div>
 
         <div class="card">
             <div class="titulo">Recepción</div>
             <p class="texto"><strong>Salón Jardín Real</strong><br>20:00 HRS - Monterrey, NL</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.456108170258!2d-100.2743038238446!3d25.587846114144362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf4d845a1263%3A0xcc0e4b7033bd78d3!2sEl%20Jard%C3%ADn%20Real!5e0!3m2!1ses-419!2smx!4v1700000000001!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595!2d-100.3!3d25.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM2JzAwLjAiTiAxMDDCsDE4JzAwLjAiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/4" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
+            <a href="https://maps.app.goo.gl/u3U6uC78sL3Y7D7h7" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
         </div>
     </div>
 </section>
@@ -271,7 +275,8 @@
 <section>
     <div class="content-wrap anim card">
         <div class="titulo">Muro de Deseos</div>
-        <textarea id="deseo" rows="4" placeholder="Escribe un mensaje para los novios..."></textarea>
+        <p class="texto">Nos encantará leer tus palabras</p>
+        <textarea id="deseo" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
         <button class="boton" onclick="enviarDeseo()">Enviar Mensaje</button>
         <br><br>
         <button class="boton" style="background:#25d366" onclick="sugerirCancion()"><i class="fab fa-whatsapp"></i> Sugerir canción para la fiesta</button>
@@ -281,7 +286,7 @@
 <section class="bg-novios" style="padding-bottom: 120px;">
     <div class="overlay"></div>
     <div class="content-wrap anim">
-        <div class="card" style="background: rgba(255, 255, 255, 0.85); border: 1px solid var(--dorado);">
+        <div class="card" style="background: rgba(255, 255, 255, 0.9); border: 1px solid var(--dorado);">
             <div class="titulo" style="font-size: 1.8rem;">Nuestra Boda no sería igual sin ti</div>
             <p class="texto">
                 A lo largo de nuestra historia, cada uno de ustedes ha dejado una huella especial en nuestras vidas. 
@@ -296,8 +301,8 @@
         <br>
         
         <div class="anim">
-            <p class="texto" style="font-weight: 600; color: #3a2f25; margin-bottom: 10px;">Por favor, confírmanos tu asistencia:</p>
-            <a class="boton" style="padding: 20px 40px; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" onclick="confirmarAsistencia()">
+            <p class="texto" style="font-weight: 600; color: #3a2f25; margin-bottom: 15px;">Por favor, confírmanos tu asistencia:</p>
+            <a class="boton" style="padding: 22px 50px; font-size: 1.2rem;" onclick="confirmarAsistencia()">
                 <i class="fab fa-whatsapp"></i> CONFIRMAR ASISTENCIA
             </a>
         </div>
