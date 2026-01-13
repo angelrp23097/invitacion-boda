@@ -95,9 +95,9 @@
         .timeline { margin: 40px 0; position: relative; }
         .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--dorado); transform: translateX(-50%); }
         .timeline-item { margin-bottom: 30px; position: relative; width: 50%; padding: 0 30px; }
+        .timeline-item h4 { color: var(--dorado-oscuro); font-size: 1.4rem; font-family: 'Playfair Display', serif; }
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-        .timeline-item h4 { color: var(--dorado-oscuro); font-size: 1.4rem; font-family: 'Playfair Display', serif; }
 
         /* --- GALERÍA --- */
         .gallery-container { overflow: hidden; position: relative; border-radius: 15px; width: 90%; margin: 0 auto; }
@@ -130,12 +130,24 @@
         /* --- FORMULARIOS --- */
         textarea { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; margin-top: 15px; resize: none; }
 
+        /* --- AJUSTES MÓVIL --- */
         @media (max-width: 768px) {
-            section { padding: 60px 15px; }
+            section { padding: 40px 15px; }
+            .iniciales { font-size: 4rem; }
+            .nombres { font-size: 1.3rem; }
+            .titulo { font-size: 1.5rem !important; }
+            .texto { font-size: 0.85rem !important; }
+            .fecha-boda { font-size: 1.4rem; }
+            .firma { font-size: 2.5rem; }
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 45px; }
-            .gallery-track img { height: 300px; }
+            .timeline-item h4 { font-size: 1.1rem; }
+            .gallery-track img { height: 280px; }
             .dress-code-container { gap: 20px; }
+            .dress-item i { font-size: 1.8rem; }
+            .count-num { font-size: 1.1rem; }
+            .count-item { min-width: 60px; padding: 8px; }
+            .boton { padding: 10px 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -225,18 +237,18 @@
             <div class="titulo">Ceremonia</div>
             <p class="texto"><strong>Parroquia San José</strong><br>17:00 HRS - Monterrey, NL</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.688175960416!2d-100.32271722384288!3d25.672249611933092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be2719ace001%3A0x5be0e866816b63f6!2sTemplo%20San%20Jos%C3%A9!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.663520857147!2d-100.3121516!3d25.6823901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be22f25492d5%3A0x6d9f38e6e9f2434!2sMonterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/3" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
+            <a href="#" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
         </div>
 
         <div class="card">
             <div class="titulo">Recepción</div>
             <p class="texto"><strong>Salón Jardín Real</strong><br>20:00 HRS - Monterrey, NL</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.456108170258!2d-100.2743038238446!3d25.587846114144362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf4d845a1263%3A0xcc0e4b7033bd78d3!2sEl%20Jard%C3%ADn%20Real!5e0!3m2!1ses-419!2smx!4v1700000000001!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.663520857147!2d-100.3121516!3d25.6823901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be22f25492d5%3A0x6d9f38e6e9f2434!2sMonterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/4" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
+            <a href="#" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
         </div>
     </div>
 </section>
@@ -338,10 +350,10 @@
     setInterval(() => {
         const now = new Date().getTime();
         const gap = weddingDate - now;
-        document.getElementById("days").innerText = Math.floor(gap / (86400000));
-        document.getElementById("hours").innerText = Math.floor((gap % (86400000)) / 3600000);
-        document.getElementById("mins").innerText = Math.floor((gap % 3600000) / 60000);
-        document.getElementById("secs").innerText = Math.floor((gap % 60000) / 1000);
+        document.getElementById("days").innerText = Math.max(0, Math.floor(gap / (86400000)));
+        document.getElementById("hours").innerText = Math.max(0, Math.floor((gap % (86400000)) / 3600000));
+        document.getElementById("mins").innerText = Math.max(0, Math.floor((gap % 3600000) / 60000));
+        document.getElementById("secs").innerText = Math.max(0, Math.floor((gap % 60000) / 1000));
     }, 1000);
 
     let currentIdx = 0;
