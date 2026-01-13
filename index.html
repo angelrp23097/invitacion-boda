@@ -119,10 +119,95 @@ section{
 .boton img{
   width:34px;
 }
+
+/* BOTÓN MUSICA */
+#musicBtn{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:90px;
+  height:90px;
+  background:rgba(183,155,120,0.9);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.5rem;
+  color:white;
+  cursor:pointer;
+  z-index:9999;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+#musicBtn.playing{
+  font-size:2rem;
+}
+
+/* =====================
+   MODO CELULAR
+===================== */
+@media (max-width:768px){
+
+  section{
+    padding:90px 18px;
+  }
+
+  .anim{
+    transform:translateY(40px);
+  }
+
+  .iniciales{
+    font-size:4.5rem;
+  }
+
+  .nombres{
+    font-size:2.2rem;
+  }
+
+  .titulo{
+    font-size:2.4rem;
+  }
+
+  .texto{
+    font-size:1.1rem;
+    line-height:1.7;
+  }
+
+  .contador{
+    font-size:1.8rem;
+  }
+
+  .card{
+    padding:35px 22px;
+    border-radius:22px;
+  }
+
+  .boton{
+    font-size:1.1rem;
+    padding:16px 30px;
+  }
+
+  .boton img{
+    width:24px;
+  }
+
+  #musicBtn{
+    width:70px;
+    height:70px;
+    font-size:2rem;
+  }
+}
 </style>
 </head>
 
 <body>
+
+<!-- BOTÓN MUSICA -->
+<div id="musicBtn" onclick="toggleMusic()">▶</div>
+<audio id="musica" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/03/audio_7c3cfa6d68.mp3" type="audio/mpeg">
+</audio>
 
 <!-- PORTADA -->
 <section class="portada">
@@ -169,6 +254,7 @@ section{
     <p class="texto">Laura Martínez & Roberto Gómez</p>
   </div>
 </section>
+
 <!-- ITINERARIO -->
 <section class="bg-novios">
   <div class="overlay"></div>
@@ -197,7 +283,6 @@ section{
     </p>
   </div>
 </section>
-
 
 <!-- UBICACIONES -->
 <section class="bg-rosas">
@@ -273,6 +358,24 @@ function confirmarAsistencia(){
     const url=`https://wa.me/528132654324?text=${encodeURIComponent(mensaje)}`;
     window.open(url,'_blank');
   }
+}
+
+// MUSICA
+const musica=document.getElementById("musica");
+const btn=document.getElementById("musicBtn");
+let sonando=false;
+
+function toggleMusic(){
+  if(!sonando){
+    musica.play();
+    btn.innerHTML="❚❚";
+    btn.classList.add("playing");
+  }else{
+    musica.pause();
+    btn.innerHTML="▶";
+    btn.classList.remove("playing");
+  }
+  sonando=!sonando;
 }
 </script>
 
