@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boda Juan & Valeria</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  color:#3a2f25;
+  overflow-x:hidden;
+}
+
+/* ANIMACIÓN */
+.anim{
+  opacity:0;
+  transform:translateX(180px);
+  transition:all 1.6s ease;
+}
+.anim.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* SECCIONES */
+section{
+  position:relative;
+  padding:140px 25px;
+  text-align:center;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.78);
+}
+
+/* FONDOS BODA */
+.portada{
+  min-height:100vh;
+  background:url("https://images.unsplash.com/photo-1519741497674-611481863552");
+  background-size:cover;
+  background-position:center;
+}
+
+.bg-rosas{
+  background:url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc");
+  background-size:cover;
+}
+
+.bg-novios{
+  background:url("https://images.unsplash.com/photo-1520857014576-2c4f4c972b57");
+  background-size:cover;
+}
+
+/* TEXTOS GIGANTES */
+.iniciales{
+  font-family:'Playfair Display',serif;
+  font-size:9rem;
+  font-style:italic;
+}
+
+.nombres{
+  font-family:'Playfair Display',serif;
+  font-size:4.8rem;
+  font-style:italic;
+}
+
+.titulo{
+  font-family:'Playfair Display',serif;
+  font-size:4.5rem;
+  font-style:italic;
+  margin-bottom:40px;
+}
+
+.texto{
+  font-size:1.9rem;
+  max-width:1000px;
+  margin:auto;
+  line-height:2.1;
+}
+
+/* CONTADOR */
+.contador{
+  font-size:3rem;
+  font-weight:600;
+  margin-top:30px;
+}
+
+/* TARJETA */
+.card{
+  background:white;
+  padding:70px;
+  border-radius:30px;
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+  max-width:1000px;
+  margin:auto;
+}
+
+/* BOTÓN */
+.boton{
+  margin-top:50px;
+  display:inline-flex;
+  align-items:center;
+  gap:15px;
+  padding:22px 55px;
+  border-radius:60px;
+  background:#b79b78;
+  color:white;
+  font-size:1.4rem;
+  text-decoration:none;
+  font-weight:600;
+}
+.boton img{
+  width:34px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<section class="portada">
+  <div class="overlay"></div>
+  <div class="anim">
+    <div class="iniciales">J & V</div>
+    <div class="nombres">Juan Hernández & Valeria López</div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="bg-rosas">
+  <div class="overlay"></div>
+  <div class="anim">
+    <p class="texto">
+      Hay eventos en la vida que son muy especiales por sí solos, pero poder compartirlos con quienes más queremos, los convierte en momentos únicos e inolvidables.<br><br>
+      <strong>¡Te esperamos en nuestra boda!</strong>
+    </p>
+  </div>
+</section>
+
+<!-- CONTADOR -->
+<section>
+  <div class="anim">
+    <div class="titulo">25 de Octubre de 2026</div>
+    <p class="texto">Solo faltan…</p>
+    <div id="contador" class="contador"></div>
+  </div>
+</section>
+
+<!-- PADRES -->
+<section class="bg-novios">
+  <div class="overlay"></div>
+  <div class="anim card">
+    <p class="texto">
+      A nuestros queridos padres, gracias por darnos la vida, cuidarnos, guiarnos y prepararnos para este momento tan especial.
+      Su amor y apoyo son la base sobre la que construiremos nuestro hogar.
+    </p>
+    <br><br>
+    <div class="titulo">Padres de la Novia</div>
+    <p class="texto">María López & Carlos Hernández</p>
+    <br>
+    <div class="titulo">Padres del Novio</div>
+    <p class="texto">Laura Martínez & Roberto Gómez</p>
+  </div>
+</section>
+<!-- ITINERARIO -->
+<section class="bg-novios">
+  <div class="overlay"></div>
+  <div class="anim card">
+    <div class="titulo">Itinerario</div>
+
+    <p class="texto">
+      Cada momento de este día ha sido planeado con amor para que lo vivamos juntos
+      y se convierta en un recuerdo inolvidable.
+    </p>
+
+    <br><br>
+
+    <p class="texto">
+      <strong>5:00 pm</strong> · Ceremonia religiosa en la Parroquia<br><br>
+      <strong>6:30 pm</strong> · Sesión de fotografías<br><br>
+      <strong>7:30 pm</strong> · Recepción en el salón de eventos<br><br>
+      <strong>8:30 pm</strong> · Cena<br><br>
+      <strong>9:30 pm</strong> · Baile y celebración
+    </p>
+
+    <br><br>
+
+    <p class="texto">
+      Tu presencia hará que cada uno de estos momentos sea aún más especial.
+    </p>
+  </div>
+</section>
+
+
+<!-- UBICACIONES -->
+<section class="bg-rosas">
+  <div class="overlay"></div>
+  <div class="anim card">
+    <div class="titulo">Ceremonia Religiosa</div>
+    <p class="texto">Parroquia San José<br>Av. Principal 123, Monterrey, NL</p>
+    <a class="boton" href="https://maps.google.com" target="_blank">Ver en Google Maps</a>
+
+    <br><br><br>
+
+    <div class="titulo">Recepción</div>
+    <p class="texto">Salón Jardín Real<br>Calle Eventos 456, Monterrey, NL</p>
+    <a class="boton" href="https://maps.google.com" target="_blank">Ver en Google Maps</a>
+  </div>
+</section>
+
+<!-- CONFIRMACIÓN -->
+<section>
+  <div class="anim">
+    <p class="texto">
+      ¡Queremos compartir este momento tan esperado contigo!<br>
+      Por favor ayúdanos confirmando tu asistencia
+    </p>
+
+    <a class="boton" href="#" onclick="confirmarAsistencia()">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+      Confirmar asistencia
+    </a>
+  </div>
+</section>
+
+<!-- DESPEDIDA -->
+<section class="bg-novios">
+  <div class="overlay"></div>
+  <div class="anim">
+    <p class="texto">
+      Sabemos que contar con tu compañía llenará nuestro día de alegría y amor.
+    </p>
+    <div class="titulo">Te esperamos</div>
+  </div>
+</section>
+
+<script>
+// ANIMACIONES
+const elementos=document.querySelectorAll('.anim');
+window.addEventListener('scroll',()=>{
+  elementos.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-120){
+      el.classList.add('visible');
+    }
+  });
+});
+
+// CONTADOR
+const fecha=new Date("2026-10-25T17:00:00").getTime();
+setInterval(()=>{
+  const ahora=new Date().getTime();
+  const d=fecha-ahora;
+  const dias=Math.floor(d/(1000*60*60*24));
+  const horas=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  const minutos=Math.floor((d%(1000*60*60))/(1000*60));
+  const segundos=Math.floor((d%(1000*60))/1000);
+  document.getElementById("contador").innerHTML=
+  `${dias} días ${horas} h ${minutos} m ${segundos} s`;
+},1000);
+
+// CONFIRMACIÓN
+function confirmarAsistencia(){
+  const nombre=prompt("Escribe tu nombre:");
+  if(nombre){
+    const mensaje=`Yo, ${nombre}, confirmo que iré a la boda de Juan y Valeria`;
+    const url=`https://wa.me/528132654324?text=${encodeURIComponent(mensaje)}`;
+    window.open(url,'_blank');
+  }
+}
+</script>
+
+</body>
+</html>
