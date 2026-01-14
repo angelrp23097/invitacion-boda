@@ -13,7 +13,7 @@
             --dorado: #b79b78;
             --dorado-oscuro: #967d5e;
             --texto: #3a2f25;
-            --blanco-trans: rgba(255, 255, 255, 0.92);
+            --blanco-trans: rgba(255, 255, 255, 0.94);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -26,50 +26,23 @@
             overflow-x: hidden;
         }
 
-        /* --- EFECTO SOBRE --- */
+        /* --- SOBRE INICIAL --- */
         #sobre-capa {
-            position: fixed;
-            inset: 0;
-            background: #f4f1ea;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: fixed; inset: 0; background: #f4f1ea; z-index: 10000;
+            display: flex; justify-content: center; align-items: center;
             transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
         }
         .sobre-contenido { text-align: center; cursor: pointer; padding: 20px; }
         .sobre-contenido img { width: 100px; margin-bottom: 20px; animation: heartbeat 2.5s infinite; }
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+        @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
         /* --- ANIMACIONES --- */
-        .anim {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
+        .anim { opacity: 0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
         .anim.visible { opacity: 1; transform: translateY(0); }
 
         /* --- SECCIONES --- */
-        section {
-            position: relative;
-            padding: 80px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 60vh;
-        }
-
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.7));
-            z-index: 1;
-        }
-
+        section { position: relative; padding: 60px 20px; display: flex; align-items: center; justify-content: center; min-height: 50vh; }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.7)); z-index: 1; }
         .content-wrap { position: relative; z-index: 2; width: 100%; max-width: 800px; text-align: center; }
 
         /* --- FONDOS --- */
@@ -77,77 +50,79 @@
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                         url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80") no-repeat center center;
-            background-size: cover;
-            color: white;
+            background-size: cover; color: white;
         }
         .bg-rosas { background: url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; }
         .bg-novios { background: url("https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; }
 
-        /* --- TEXTOS --- */
+        /* --- TIPOGRAFÍA --- */
         .iniciales { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 20vw, 8rem); font-style: italic; }
         .nombres { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 6vw, 2.5rem); font-style: italic; font-weight: 700; }
-        .titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.5rem); font-style: italic; margin-bottom: 20px; color: var(--dorado-oscuro); }
-        .fecha-boda { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2rem); color: var(--dorado-oscuro); margin-bottom: 10px; font-weight: 600; }
-        .texto { font-size: clamp(0.95rem, 2vw, 1.1rem); margin: 0 auto; padding: 0 10px; }
+        .titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.3rem); font-style: italic; margin-bottom: 20px; color: var(--dorado-oscuro); }
+        .texto { font-size: 0.95rem; margin: 0 auto; }
         .firma { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--dorado); margin-top: 20px; }
+        .fecha-boda { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dorado-oscuro); font-weight: 700; margin-bottom: 10px; }
 
-        /* --- TIMELINE E ITINERARIO --- */
-        .timeline { margin: 40px 0; position: relative; }
-        .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--dorado); transform: translateX(-50%); }
-        .timeline-item { margin-bottom: 30px; position: relative; width: 50%; padding: 0 30px; }
-        .timeline-item h4 { color: var(--dorado-oscuro); font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+        /* --- CARDS --- */
+        .card { background: var(--blanco-trans); padding: 40px 25px; border-radius: 25px; box-shadow: 0 12px 35px rgba(0,0,0,0.06); width: 100%; border: 1px solid rgba(183, 155, 120, 0.1); }
+
+        /* --- MURO DE DESEOS (MEJORADO) --- */
+        #deseo {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            border: 1px solid var(--dorado);
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.5);
+            outline: none;
+            transition: 0.3s;
+            resize: none;
+        }
+        #deseo:focus {
+            background: white;
+            box-shadow: 0 0 10px rgba(183, 155, 120, 0.2);
+        }
+
+        /* --- MAPAS --- */
+        .map-wrapper { width: 100%; height: 200px; border-radius: 15px; overflow: hidden; margin: 15px 0; border: 1px solid #ddd; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- TIMELINE --- */
+        .timeline { margin: 30px 0; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; width: 1px; height: 100%; background: var(--dorado); transform: translateX(-50%); opacity: 0.5; }
+        .timeline-item { margin-bottom: 25px; position: relative; width: 50%; padding: 0 20px; }
+        .timeline-item h4 { color: var(--dorado-oscuro); font-size: 1.1rem; font-family: 'Playfair Display', serif; }
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
 
         /* --- GALERÍA --- */
-        .gallery-container { overflow: hidden; position: relative; border-radius: 15px; width: 90%; margin: 0 auto; }
+        .gallery-container { overflow: hidden; position: relative; border-radius: 15px; width: 100%; margin-top: 20px; }
         .gallery-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .gallery-track img { width: 100%; flex-shrink: 0; object-fit: cover; height: 400px; }
-
-        /* --- CONTADOR --- */
-        #contador { display: flex; justify-content: center; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
-        .count-item { background: white; padding: 10px; border-radius: 10px; min-width: 70px; border-bottom: 3px solid var(--dorado); flex: 1; max-width: 90px; }
-        .count-num { display: block; font-size: 1.5rem; font-weight: 600; color: var(--dorado-oscuro); }
-        .count-lab { font-size: 0.7rem; text-transform: uppercase; }
+        .gallery-track img { width: 100%; flex-shrink: 0; object-fit: cover; height: 350px; }
 
         /* --- VESTIMENTA --- */
-        .dress-code-container { display: flex; justify-content: center; gap: 40px; margin: 25px 0; }
-        .dress-item { text-align: center; }
-        .dress-item i { font-size: 2.5rem; color: var(--dorado); margin-bottom: 10px; }
+        .dress-code-container { display: flex; justify-content: center; gap: 30px; margin: 20px 0; }
+        .dress-item i { font-size: 2.2rem; color: var(--dorado); margin-bottom: 10px; }
         .paleta { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
-        .color-circle { width: 35px; height: 35px; border-radius: 50%; border: 2px white solid; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .color-circle { width: 30px; height: 30px; border-radius: 50%; border: 2px white solid; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-        /* --- TARJETAS Y MAPAS --- */
-        .card { background: var(--blanco-trans); padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 25px; }
-        .map-container { position: relative; width: 100%; height: 250px; border-radius: 15px; overflow: hidden; margin: 20px 0; border: 1px solid #eee; }
-        .map-container iframe { width: 100%; height: 100%; border: none; }
+        /* --- CONTADOR --- */
+        #contador { display: flex; justify-content: center; gap: 8px; margin: 20px 0; }
+        .count-item { background: white; padding: 12px; border-radius: 12px; min-width: 70px; border-bottom: 3px solid var(--dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .count-num { display: block; font-size: 1.4rem; font-weight: 700; color: var(--dorado-oscuro); }
+        .count-lab { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- BOTONES --- */
-        .boton { margin-top: 15px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; border-radius: 50px; background: var(--dorado); color: white !important; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem; }
-        .boton:hover { background: var(--dorado-oscuro); transform: translateY(-2px); }
-        #musicBtn { position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px; background: var(--dorado); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .boton { margin-top: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; border-radius: 50px; background: var(--dorado); color: white !important; text-decoration: none; font-weight: 600; cursor: pointer; border: none; font-size: 0.9rem; transition: 0.3s; }
+        #musicBtn { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--dorado); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 1000; }
 
-        /* --- FORMULARIOS --- */
-        textarea { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; margin-top: 15px; resize: none; }
-
-        /* --- AJUSTES MÓVIL --- */
         @media (max-width: 768px) {
-            section { padding: 40px 15px; }
-            .iniciales { font-size: 4rem; }
-            .nombres { font-size: 1.3rem; }
-            .titulo { font-size: 1.5rem !important; }
-            .texto { font-size: 0.85rem !important; }
-            .fecha-boda { font-size: 1.4rem; }
-            .firma { font-size: 2.5rem; }
-            .timeline::before { left: 20px; }
-            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 45px; }
-            .timeline-item h4 { font-size: 1.1rem; }
-            .gallery-track img { height: 280px; }
-            .dress-code-container { gap: 20px; }
-            .dress-item i { font-size: 1.8rem; }
-            .count-num { font-size: 1.1rem; }
-            .count-item { min-width: 60px; padding: 8px; }
-            .boton { padding: 10px 20px; font-size: 0.8rem; }
+            .timeline::before { left: 15px; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 35px; }
+            .gallery-track img { height: 260px; }
         }
     </style>
 </head>
@@ -156,22 +131,20 @@
 
 <div id="sobre-capa" onclick="abrirInvitacion()">
     <div class="sobre-contenido">
-        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063990.png" alt="Sobre">
-        <p class="titulo" style="font-size: 1.3rem;">Toca para abrir la invitación</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063990.png">
+        <p class="titulo" style="font-size: 1.2rem;">Toca para abrir la invitación</p>
     </div>
 </div>
 
 <div id="musicBtn" onclick="toggleMusic()">▶</div>
-<audio id="musica" loop>
-    <source src="https://www.chosic.com/wp-content/uploads/2021/04/Warm-Memories-Emotional-Inspiring-Piano.mp3" type="audio/mpeg">
-</audio>
+<audio id="musica" loop><source src="https://www.chosic.com/wp-content/uploads/2021/04/Warm-Memories-Emotional-Inspiring-Piano.mp3" type="audio/mpeg"></audio>
 
 <section class="portada">
     <div class="content-wrap anim">
         <div class="iniciales">J & V</div>
         <div class="nombres">Juan Hernández & Valeria López</div>
         <br>
-        <button class="boton" onclick="agregarCalendario()"><i class="far fa-calendar-alt"></i> Agregar al calendario</button>
+        <button class="boton" onclick="agregarCalendario()"><i class="far fa-calendar-alt"></i> Agendar fecha</button>
     </div>
 </section>
 
@@ -179,55 +152,43 @@
     <div class="overlay"></div>
     <div class="content-wrap anim card">
         <p class="texto">Con la bendición de Dios y nuestros padres, tenemos el honor de invitarlos a nuestra unión.</p>
-        <br>
-        <div class="titulo" style="font-size: 1.5rem;">Padres de la Novia</div>
+        <br><br>
+        <div class="titulo" style="font-size: 1.3rem;">Padres de la Novia</div>
         <p class="texto">María López & Carlos Hernández</p>
         <br>
-        <div class="titulo" style="font-size: 1.5rem;">Padres del Novio</div>
+        <div class="titulo" style="font-size: 1.3rem;">Padres del Novio</div>
         <p class="texto">Laura Martínez & Roberto Gómez</p>
     </div>
 </section>
 
 <section>
-    <div class="content-wrap anim">
+    <div class="content-wrap anim card">
         <div class="titulo">Nuestra Historia</div>
         <div class="timeline">
-            <div class="timeline-item"><h4>2020</h4><p>Nos conocimos</p></div>
-            <div class="timeline-item"><h4>2022</h4><p>Primer viaje</p></div>
-            <div class="timeline-item"><h4>2024</h4><p>¡Dijo que sí!</p></div>
+            <div class="timeline-item"><h4>2020</h4><p class="texto">El día que nuestras vidas se cruzaron.</p></div>
+            <div class="timeline-item"><h4>2022</h4><p class="texto">Nuestro primer viaje y miles de recuerdos.</p></div>
+            <div class="timeline-item"><h4>2024</h4><p class="texto">¡El momento en que decidimos para siempre!</p></div>
         </div>
     </div>
 </section>
 
-<section>
-    <div class="content-wrap anim">
+<section class="bg-rosas">
+    <div class="overlay"></div>
+    <div class="content-wrap anim card">
         <div class="titulo">Itinerario</div>
         <div class="timeline">
-            <div class="timeline-item">
-                <h4>17:00 HRS</h4>
-                <p class="texto">Ceremonia Religiosa<br>Parroquia San José</p>
-            </div>
-            <div class="timeline-item">
-                <h4>19:00 HRS</h4>
-                <p class="texto">Cóctel de Bienvenida<br>Jardín del Salón</p>
-            </div>
-            <div class="timeline-item">
-                <h4>20:00 HRS</h4>
-                <p class="texto">Cena y Recepción<br>Salón Jardín Real</p>
-            </div>
-            <div class="timeline-item">
-                <h4>22:00 HRS</h4>
-                <p class="texto">¡A bailar!<br>Apertura de pista</p>
-            </div>
+            <div class="timeline-item"><h4>17:00 HRS</h4><p class="texto">Ceremonia Religiosa<br>Parroquia San José</p></div>
+            <div class="timeline-item"><h4>19:00 HRS</h4><p class="texto">Cóctel de Bienvenida<br>Jardín del Salón</p></div>
+            <div class="timeline-item"><h4>20:00 HRS</h4><p class="texto">Cena y Recepción<br>Salón Jardín Real</p></div>
+            <div class="timeline-item"><h4>22:00 HRS</h4><p class="texto">¡A bailar!<br>Apertura de pista</p></div>
         </div>
     </div>
 </section>
 
 <section>
-    <div class="content-wrap anim">
-        <div class="fecha-boda">25 Octubre 2026</div>
-        <div class="titulo" style="font-size: 1.2rem; margin-bottom: 10px;">Faltan solo…</div>
-        
+    <div class="content-wrap anim card">
+        <div class="fecha-boda">25 de Octubre, 2026</div>
+        <div class="titulo" style="font-size: 1.1rem; margin-bottom: 0;">Faltan solo…</div>
         <div id="contador">
             <div class="count-item"><span id="days" class="count-num">0</span><span class="count-lab">Días</span></div>
             <div class="count-item"><span id="hours" class="count-num">0</span><span class="count-lab">Hrs</span></div>
@@ -248,7 +209,7 @@
                 <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&w=800&q=80">
             </div>
         </div>
-        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+        <div style="margin-top:20px; display: flex; justify-content: center; gap: 10px;">
             <button class="boton" onclick="moveGallery(-1)">❮</button>
             <button class="boton" onclick="moveGallery(1)">❯</button>
         </div>
@@ -257,22 +218,22 @@
 
 <section>
     <div class="content-wrap anim">
-        <div class="card">
-            <div class="titulo">Ceremonia</div>
-            <p class="texto"><strong>Parroquia San José</strong><br>17:00 HRS - Monterrey, NL</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.6834152778!2d-100.312067!3d25.682337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzU2LjQiTiAxMDDCsDE4JzQzLjQiVw!5e0!3m2!1ses-419!2smx!4v1625000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+        <div class="card" style="margin-bottom:25px;">
+            <div class="titulo" style="font-size:1.4rem;">Ceremonia Religiosa</div>
+            <p class="texto"><strong>Parroquia San José</strong><br>Monterrey, NL</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.632292398565!2d-100.3121546!3d25.6835263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be2f62768521%3A0x6e26868d4078864a!2sCatedral%20Metropolitana%20de%20Monterrey!5e0!3m2!1ses-419!2smx!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="#" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
+            <a href="https://maps.app.goo.gl/3A7fC7" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
         </div>
 
         <div class="card">
-            <div class="titulo">Recepción</div>
-            <p class="texto"><strong>Salón Jardín Real</strong><br>20:00 HRS - Monterrey, NL</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.6834152778!2d-100.312067!3d25.682337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzU2LjQiTiAxMDDCsDE4JzQzLjQiVw!5e0!3m2!1ses-419!2smx!4v1625000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+            <div class="titulo" style="font-size:1.4rem;">Recepción</div>
+            <p class="texto"><strong>Salón Jardín Real</strong><br>Monterrey, NL</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.223522258931!2d-100.3541221!3d25.6631241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be36e16541f5%3A0x9599d10e6e76550e!2sPabell%C3%B3n%20M!5e0!3m2!1ses-419!2smx!4v1700000000001" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="#" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
+            <a href="https://maps.app.goo.gl/3A7fC7" target="_blank" class="boton"><i class="fas fa-map-marker-alt"></i> Cómo llegar</a>
         </div>
     </div>
 </section>
@@ -282,103 +243,59 @@
     <div class="content-wrap anim card">
         <div class="titulo">Código de Vestimenta</div>
         <p class="texto" style="letter-spacing: 2px;"><strong>FORMAL</strong></p>
-        
         <div class="dress-code-container">
-            <div class="dress-item">
-                <i class="fas fa-user-tie"></i>
-                <p class="texto">Hombres:<br>Traje completo</p>
-            </div>
-            <div class="dress-item">
-                <i class="fas fa-female"></i>
-                <p class="texto">Mujeres:<br>Vestido Largo</p>
-            </div>
+            <div class="dress-item"><i class="fas fa-user-tie"></i><p class="texto">Traje Completo</p></div>
+            <div class="dress-item"><i class="fas fa-female"></i><p class="texto">Vestido Largo</p></div>
         </div>
-
-        <p class="texto">Sugerencia de colores:</p>
+        <p class="texto" style="font-size: 0.85rem;">Sugerencia de colores:</p>
         <div class="paleta">
-            <div class="color-circle" style="background: #2c3e50;"></div>
-            <div class="color-circle" style="background: #95a5a6;"></div>
-            <div class="color-circle" style="background: #d4af37;"></div>
+            <div class="color-circle" style="background:#2c3e50;"></div>
+            <div class="color-circle" style="background:#95a5a6;"></div>
+            <div class="color-circle" style="background:#d4af37;"></div>
         </div>
-        <p class="texto" style="color: #a00; font-weight: 600; margin-top: 15px;">* Favor de evitar el color blanco</p>
     </div>
 </section>
 
 <section>
     <div class="content-wrap anim card">
         <div class="titulo">Muro de Deseos</div>
-        <textarea id="deseo" rows="4" placeholder="Escribe un mensaje para los novios..."></textarea>
-        <button class="boton" onclick="enviarDeseo()">Enviar Mensaje</button>
-        <br><br>
-        <button class="boton" style="background:#25d366" onclick="sugerirCancion()"><i class="fab fa-whatsapp"></i> Sugerir canción para la fiesta</button>
+        <p class="texto">Déjanos un mensaje especial para nuestro gran día</p>
+        <textarea id="deseo" rows="4" placeholder="Escribe aquí tus buenos deseos..."></textarea>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <button class="boton" onclick="enviarDeseo()" style="width: 100%; max-width: 280px;">Enviar Mensaje</button>
+            <button class="boton" onclick="sugerirCancion()" style="background:#25d366; width: 100%; max-width: 280px;"><i class="fab fa-whatsapp"></i> Sugerir canción</button>
+        </div>
     </div>
 </section>
 
-<section class="bg-novios" style="padding-bottom: 120px;">
+<section class="bg-novios" style="padding-bottom:120px;">
     <div class="overlay"></div>
-    <div class="content-wrap anim">
-        <div class="card" style="background: rgba(255, 255, 255, 0.85); border: 1px solid var(--dorado);">
-            <div class="titulo" style="font-size: 1.8rem;">Nuestra Boda no sería igual sin ti</div>
-            <p class="texto">
-                A lo largo de nuestra historia, cada uno de ustedes ha dejado una huella especial en nuestras vidas. 
-                Por eso, no imaginamos este gran paso sin su compañía, sus sonrisas y su cariño.
-                <br><br>
-                Nosotros hemos soñado mucho con este día, y lo que más deseamos es celebrarlo junto a ti. 
-                <strong>¡Te esperamos con los brazos abiertos!</strong>
-            </p>
-            <div class="firma">Juan & Valeria</div>
-        </div>
-        
-        <br>
-        
-        <div class="anim">
-            <p class="texto" style="font-weight: 600; color: #3a2f25; margin-bottom: 10px;">Por favor, confírmanos tu asistencia:</p>
-            <a class="boton" style="padding: 20px 40px; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" onclick="confirmarAsistencia()">
-                <i class="fab fa-whatsapp"></i> CONFIRMAR ASISTENCIA
-            </a>
-        </div>
+    <div class="content-wrap anim card">
+        <div class="titulo" style="font-size: 1.5rem;">Nuestra Boda no sería igual sin ti</div>
+        <p class="texto" style="font-style: italic; line-height: 1.8;">
+            A lo largo de nuestra historia, cada uno de ustedes ha dejado una huella especial en nuestras vidas. Por eso, no imaginamos este gran paso sin su compañía, sus sonrisas y su cariño.
+            <br><br>
+            Nosotros hemos soñado mucho con este día, y lo que más deseamos es celebrarlo junto a ti.
+            <br><br>
+            <strong>¡Te esperamos con los brazos abiertos!</strong>
+        </p>
+        <div class="firma">Juan & Valeria</div>
+        <br><br>
+        <p class="texto" style="font-weight: 600; margin-bottom: 15px;">POR FAVOR, CONFÍRMANOS TU ASISTENCIA:</p>
+        <a class="boton" style="padding: 18px 35px; background: #25d366; font-size: 1rem;" onclick="confirmarAsistencia()">
+            <i class="fab fa-whatsapp"></i> CONFIRMAR POR WHATSAPP
+        </a>
     </div>
 </section>
 
 <script>
     const musica = document.getElementById("musica");
     const btn = document.getElementById("musicBtn");
-    let isPlaying = false;
-
-    function abrirInvitacion() {
-        document.getElementById('sobre-capa').style.transform = 'translateY(-100%)';
-        setTimeout(() => { 
-            document.getElementById('sobre-capa').style.display = 'none'; 
-            if(!isPlaying) toggleMusic();
-        }, 600);
-    }
-
-    function toggleMusic(){
-        if(musica.paused){
-            musica.play().catch(e => console.log("Audio play prevented: ", e));
-            btn.innerHTML = "❚❚";
-            isPlaying = true;
-        } else {
-            musica.pause();
-            btn.innerHTML = "▶";
-            isPlaying = false;
-        }
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    function abrirInvitacion() { document.getElementById('sobre-capa').style.transform = 'translateY(-100%)'; setTimeout(() => { if(musica.paused) toggleMusic(); }, 600); }
+    function toggleMusic(){ if(musica.paused){ musica.play(); btn.innerHTML = "❚❚"; } else { musica.pause(); btn.innerHTML = "▶"; } }
+    
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.anim').forEach(el => observer.observe(el));
-
-    const weddingDate = new Date("Oct 25, 2026 17:00:00").getTime();
-    setInterval(() => {
-        const now = new Date().getTime();
-        const gap = weddingDate - now;
-        document.getElementById("days").innerText = Math.max(0, Math.floor(gap / (86400000)));
-        document.getElementById("hours").innerText = Math.max(0, Math.floor((gap % (86400000)) / 3600000));
-        document.getElementById("mins").innerText = Math.max(0, Math.floor((gap % 3600000) / 60000));
-        document.getElementById("secs").innerText = Math.max(0, Math.floor((gap % 60000) / 1000));
-    }, 1000);
 
     let currentIdx = 0;
     function moveGallery(dir) {
@@ -388,26 +305,19 @@
         track.style.transform = `translateX(-${currentIdx * 100}%)`;
     }
 
-    function agregarCalendario() {
-        window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+Juan+y+Valeria&dates=20261025T170000Z/20261026T020000Z&details=¡Te+esperamos!&location=Monterrey', '_blank');
-    }
+    const weddingDate = new Date("Oct 25, 2026 17:00:00").getTime();
+    setInterval(() => {
+        const gap = weddingDate - new Date().getTime();
+        document.getElementById("days").innerText = Math.max(0, Math.floor(gap / 86400000));
+        document.getElementById("hours").innerText = Math.max(0, Math.floor((gap % 86400000) / 3600000));
+        document.getElementById("mins").innerText = Math.max(0, Math.floor((gap % 3600000) / 60000));
+        document.getElementById("secs").innerText = Math.max(0, Math.floor((gap % 60000) / 1000));
+    }, 1000);
 
-    function sugerirCancion() {
-        window.open(`https://wa.me/528132654324?text=${encodeURIComponent("¡Hola! Sugiero esta canción para la fiesta: ")}`, '_blank');
-    }
-
-    function enviarDeseo() {
-        const msg = document.getElementById('deseo').value;
-        if(msg) {
-            alert("¡Gracias por tus palabras! Nos hace mucha ilusión leerte.");
-            document.getElementById('deseo').value = "";
-        }
-    }
-
-    function confirmarAsistencia(){
-        const n = prompt("Por favor, ingresa tu nombre completo:");
-        if(n) window.open(`https://wa.me/528132654324?text=${encodeURIComponent("Hola! Soy " + n + ", confirmo mi asistencia a su boda.")}`, '_blank');
-    }
+    function enviarDeseo() { alert("¡Gracias por tu mensaje!"); document.getElementById('deseo').value = ""; }
+    function confirmarAsistencia() { window.open(`https://wa.me/528132654324?text=¡Hola! Confirmo mi asistencia a la boda de Juan y Valeria.`, '_blank'); }
+    function sugerirCancion() { window.open(`https://wa.me/528132654324?text=¡Hola! Sugiero esta canción para la boda: `, '_blank'); }
+    function agregarCalendario() { window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+Juan+y+Valeria&dates=20261025T170000Z/20261026T020000Z', '_blank'); }
 </script>
 
 </body>
